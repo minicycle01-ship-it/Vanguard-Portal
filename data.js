@@ -1,126 +1,146 @@
-window.SITH_ORDER_DATA = {
-  divisions: [
+
+---
+
+## `data.js`
+
+```js
+const portalData = {
+  title: "The Sith Vanguard Portal",
+  divisionName: "The Sith Vanguard",
+  tagline: "Warriors of the Order",
+
+  overview: {
+    description:
+      "The Sith Vanguard oversees the training of the Order’s tacticians. It is also responsible for organizing offensive or defensive raids with the Jedi.",
+    theme: "Dark reds",
+    entry:
+      "The Sith Vanguard is open for all to join, although members must hold at minimum the rank of Sith Acolyte for entry. A tryout is required.",
+    expectations:
+      "Members are expected to remain active in accordance with division command, behave according to the Sith Edict, and follow the direction of The Sith Order.",
+    focus:
+      "The Vanguard is a combat-focused division. There is currently no quota."
+  },
+
+  directory: [
     {
-      name: 'The Sith Vanguard',
-      summary: 'Oversees battlefield readiness, tactics, and coordinated raid action.',
-      purpose:
-        'The Sith Vanguard oversees the training of the Order’s tacticians. It is also responsible for organizing offensive or defensive raids with the Jedi.',
-      focus: 'Tactics, raids, battlefield readiness, operational leadership',
-      atmosphere: 'Commanding, aggressive, disciplined'
+      title: "Training",
+      text:
+        "The Vanguard trains members in lightsaber combat, warrior discipline, and battlefield readiness."
     },
     {
-      name: 'The Sith Doctrine',
-      summary: 'Trains rising members and safeguards the teachings of the Order.',
-      purpose:
-        'The Sith Doctrine is tasked with the training of the Sith Hopefuls, Sith Acolytes, and aiding Apprentices with giving the basic knowledge that they need throughout their career in the Order. They also manage the Archives.',
-      focus: 'Instruction, doctrine, archives, member development',
-      atmosphere: 'Learned, severe, uncompromising'
+      title: "Raids",
+      text:
+        "The division organizes offensive and defensive raids involving Jedi forces when required."
     },
     {
-      name: 'Laws & Justice',
-      summary: 'Maintains internal order and oversees the judicial system of the Order.',
-      purpose:
-        'Primarily concerned with maintaining order and presiding over the judicial system, Laws & Justice is vital for the survival of the Order. It passes legal rulings based on the Sith Edict and Sith Code.',
-      focus: 'Law, order, rulings, oversight, discipline',
-      atmosphere: 'Authoritative, exacting, controlled'
+      title: "Squadrons",
+      text:
+        "Warriors are assigned to squadrons led by senior Vanguard command such as Warmasters and Crusaders."
     },
     {
-      name: 'The Dark Honor Guard',
-      summary: 'Protects the highest authorities and the sacred places of the Order.',
-      purpose:
-        'The Dark Honor Guard are entrusted and tasked with the protection of the Emperor, his councillors, and Sith places in whole.',
-      focus: 'Protection, ceremonial authority, security, loyalty',
-      atmosphere: 'Imposing, loyal, elite'
+      title: "Leadership",
+      text:
+        "The Blademaster serves as 1st in Command of the division and oversees the full Vanguard system."
     },
     {
-      name: 'Scientific Advancement',
-      summary: 'Develops the technology and systems that support the Order on Roblox.',
-      purpose:
-        'Charged with the technology innovation of the Order, Scientific Advancement houses the developers that make the Order possible on Roblox. They work closely with the Jedi Artisans to ensure both Orders are up to date on the community’s technology.',
-      focus: 'Technology, development, systems, innovation',
-      atmosphere: 'Analytical, progressive, secretive'
+      title: "Tryouts",
+      text:
+        "Entry requires at least Sith Acolyte and completion of a Vanguard tryout."
     }
   ],
-  links: [
+
+  ranks: [
     {
-      title: 'The Sith Code',
-      description: 'The Sith Code Trello board contains all information about the Order in one place. It is mandatory to read all cards labeled with the green marker titled "Essential."',
-      href: 'https://trello.com/b/5o48rAhZ/the-sith-order-sith-code'
+      name: "Initiate",
+      type: "Entry Rank",
+      requirement: "Entry into the Sith Vanguard.",
+      description:
+        "Newcomers of the Vanguard seeking the way of the Warrior. Initiates are required by Vanguard Law to complete Warrior Introduction Training before starting their climb.",
+      notes:
+        "Initiate Training may be hosted by a Marauder+."
     },
     {
-      title: 'The Sith Edict',
-      description: 'The Sith Edict outlines the Sith Order’s rules, punishments, and procedures. Reading this document is required by all members of the Order.',
-      href: 'https://docs.google.com/document/d/1HsswQNCc5E0N1EaV_BMUOjaoWgOkcfxm3dFY29md-FQ/edit?usp=sharing'
+      name: "Advanced Initiate",
+      type: "Training Rank",
+      requirement:
+        "Must pass Warrior Introduction Training.",
+      description:
+        "Members who have passed Warrior Introduction Training now begin working on their lightsaber skills alongside other members of the Vanguard.",
+      notes:
+        "Requires 24 Activity Points before taking the Warrior Trial."
     },
     {
-      title: 'Sith High Command',
-      description: 'A guideline area for Sith High Command members and a public reference for the duties and tasks carried by High Command.',
-      href: 'https://docs.google.com/document/d/1UZOfIejOzWQR2XP9xfNMkjuhTWwycjWyLYyuWDgUjQU/edit'
+      name: "Warrior",
+      type: "Full Member",
+      requirement:
+        "Must pass the Warrior Trial.",
+      description:
+        "Full members of the Vanguard who have passed the test of their lightsaber skills in combat. Warriors are assigned to a squadron led by a Warmaster and Crusader.",
+      notes:
+        "Warriors form the main fighting body of the Sith Vanguard."
     },
     {
-      title: 'Orion Community Discord Server',
-      description: 'A shared community server where members of both Jedi and Sith can convene for raids, gamenights, and special events.',
-      href: 'https://discord.gg/WxKkancgZ8'
+      name: "Marauder",
+      type: "Senior Warrior",
+      requirement:
+        "Chosen by the Squadron Crusader and Squadron Warmaster.",
+      description:
+        "Marauders are selected as more experienced combatants within the Vanguard. They act as seniors to Warriors and assist in developing combat discipline.",
+      notes:
+        "Sith Order requirement rank: Sith Lord+."
     },
     {
-      title: 'Kaggath Regulations',
-      description: 'Outlines the statutes for conducting a Kaggath, including current holders and relics obtainable through Kaggaths.',
-      href: 'https://docs.google.com/document/d/1H-Q3JWjgIwiJ5s6eTYYZrViBOIbo_NkLH0FEGLISARs/edit?tab=t.0'
+      name: "Crusader",
+      type: "Squadron Command",
+      requirement:
+        "Recognized command position within the Vanguard.",
+      description:
+        "Crusaders assist in leading squadrons and maintaining the structure, discipline, and performance of Vanguard combat units.",
+      notes:
+        "Works alongside Warmasters in squadron leadership."
     },
     {
-      title: 'Rank Progression Registry',
-      description: 'Track progression and rank development within the Order.',
-      href: 'https://docs.google.com/spreadsheets/d/1gBYti4lZ28jnAKjnyXuH9Pw_FowA9zLwcSZe03GFL5w/edit?usp=sharing'
+      name: "Warmaster",
+      type: "2nd in Command",
+      requirement:
+        "Voted in or chosen by the Blademaster.",
+      description:
+        "Warmasters are the 2ICs of the division and leading commanders of the squadrons assigned to them by the Blademaster.",
+      notes:
+        "Responsible for squadron command and supporting Vanguard leadership."
     },
     {
-      title: 'Assassination Regulations',
-      description: 'Any information regarding assassinations will be found here. This document outlines the regulations governing them.',
-      href: 'https://docs.google.com/document/d/1HOiq5PCVOjFrFsKIRGdteO_tFO0OhdHWTDVhsKpApmo/edit?usp=sharing'
+      name: "Blademaster",
+      type: "1st in Command",
+      requirement:
+        "Chosen by the Emperor or, in some cases, the Dark Council.",
+      description:
+        "The Sith Blademaster is the 1st in Command of the Sith Vanguard and overseer of the squadrons. Known for mastery of lightsaber combat, the Blademaster oversees the full Vanguard system and may change policies to match the current situation of The Sith Order.",
+      notes:
+        "The Blademaster holds authority over all ranks within the Vanguard. No one except the Emperor can overstep the Blademaster."
+    }
+  ],
+
+  resources: [
+    {
+      name: "Sith Order Discord",
+      url: "https://discord.gg/B2swbgknYP"
     },
     {
-      title: 'Assassination Board',
-      description: 'The Sith Order assassination board. The board resets on the first of every month. Targets get cleared once marked after two days of their original time becoming marked.',
-      href: 'https://docs.google.com/spreadsheets/d/1yAex-PT2zCq9i75AV92N0Z9AtLOHStUd3iC9lIld_Nc/edit?usp=sharing'
+      name: "Sith Order Group",
+      url: "https://www.roblox.com/communities/12345194/he-Sith-rd-r#!/about"
     },
     {
-      title: 'Ashas Ree',
-      description: 'Sith territory.',
-      href: 'https://www.roblox.com/games/16012495353/The-Sith-Temple-on-Ashas-Ree'
+      name: "Vanguard Group",
+      url: "https://www.roblox.com/communities/12345263/The-Sith-Order-Sith-Vanguard#!/about"
     },
     {
-      title: 'Malachor',
-      description: 'Sith territory.',
-      href: 'https://www.roblox.com/games/17120897870/Malachor'
+      name: "Vanguard Discord",
+      url: "https://discord.gg/keCKnT44X7"
     },
     {
-      title: 'Naboo',
-      description: 'Jedi territory.',
-      href: 'https://www.roblox.com/games/6112010593/--'
-    },
-    {
-      title: 'Toola',
-      description: 'Battleground.',
-      href: 'https://www.roblox.com/games/16092485546/Toola-Battlegrounds'
-    },
-    {
-      title: 'Shu Torun',
-      description: 'Battleground.',
-      href: 'https://www.roblox.com/games/16092454069/Shu-Torun-Battlegrounds'
-    },
-    {
-      title: 'Panna Prime',
-      description: 'Battleground.',
-      href: 'https://www.roblox.com/games/16092468118/Panna-Prime-Battlegrounds'
-    },
-    {
-      title: 'Balmorra',
-      description: 'Battleground.',
-      href: 'https://www.roblox.com/games/16092503821/Balmorra-Battlegrounds'
-    },
-    {
-      title: 'Clothing Couturier',
-      description: 'Server link.',
-      href: 'https://discord.gg/dNhhpkqTeW'
+      name: "Vanguard Trello",
+      url: "https://trello.com/b/ebjNEpXj/the-sith-order-military-command"
     }
   ]
 };
