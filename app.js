@@ -1,169 +1,56 @@
-const data = window.SITH_ORDER_DATA;
+document.addEventListener("DOMContentLoaded", () => {
+  document.title = portalData.title;
 
-const divisionList = document.getElementById('divisionList');
-const divisionDetail = document.getElementById('divisionDetail');
-const linkGrid = document.getElementById('linkGrid');
-const welcomeModal = document.getElementById('welcomeModal');
-const enterSiteButton = document.getElementById('enterSiteButton');
-const navTabs = document.querySelectorAll('.nav-tab');
-const navJumps = document.querySelectorAll('.nav-jump');
-const portalViews = document.querySelectorAll('.portal-view');
+  document.getElementById("portal-title").textContent = portalData.title;
+  document.getElementById("portal-tagline").textContent = portalData.tagline;
 
-function renderDivisionDetail(division) {
-  divisionDetail.innerHTML = `
-    <p class="eyebrow">Division Record</p>
-    <h3>${division.name}</h3>
-    <p>${division.purpose}</p>
-    <div class="division-meta">
-      <div class="meta-box">
-        <h4>Primary Focus</h4>
-        <p>${division.focus}</p>
-      </div>
-      <div class="meta-box">
-        <h4>Atmosphere</h4>
-        <p>${division.atmosphere}</p>
-      </div>
-    </div>
-  `;
-}
+  document.getElementById("overview-description").textContent =
+    portalData.overview.description;
 
-function renderDivisions() {
-  divisionList.innerHTML = '';
+  document.getElementById("overview-entry").textContent =
+    portalData.overview.entry;
 
-  data.divisions.forEach((division, index) => {
-    const button = document.createElement('button');
-    button.className = 'division-button';
-    button.type = 'button';
-    button.innerHTML = `
-      <strong>${division.name}</strong>
-      <span>${division.summary}</span>
+  document.getElementById("overview-expectations").textContent =
+    portalData.overview.expectations;
+
+  document.getElementById("overview-focus").textContent =
+    portalData.overview.focus;
+
+  const directoryList = document.getElementById("directory-list");
+  portalData.directory.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
     `;
-
-    if (index === 0) {
-      button.classList.add('active');
-      renderDivisionDetail(division);
-    }
-
-    button.addEventListener('click', () => {
-      document
-        .querySelectorAll('.division-button')
-        .forEach((item) => item.classList.remove('active'));
-      button.classList.add('active');
-      renderDivisionDetail(division);
-    });
-
-    divisionList.appendChild(button);
+    directoryList.appendChild(card);
   });
-}
 
-function getLinkCategory(title) {
-  if (['The Sith Code', 'The Sith Edict', 'Sith High Command', 'Kaggath Regulations', 'Assassination Regulations'].includes(title)) {
-    return 'Documents';
-  }
-
-  if (['Rank Progression Registry', 'Assassination Board'].includes(title)) {
-    return 'Registries';
-  }
-
-  if (['Ashas Ree', 'Malachor'].includes(title)) {
-    return 'Sith Territory';
-  }
-
-  if (['Naboo'].includes(title)) {
-    return 'Jedi Territory';
-  }
-
-  if (['Toola', 'Shu Torun', 'Panna Prime', 'Balmorra'].includes(title)) {
-    return 'Battlegrounds';
-  }
-
-  if (['Orion Community Discord Server', 'Clothing Couturier'].includes(title)) {
-    return 'Servers';
-  }
-
-  return 'Archive Links';
-}
-
-function renderLinks() {
-  linkGrid.innerHTML = '';
-
-  data.links.forEach((link) => {
-    const anchor = document.createElement('a');
-    const category = getLinkCategory(link.title);
-    anchor.className = 'link-card';
-    anchor.href = link.href;
-    anchor.target = link.href.startsWith('http') ? '_blank' : '_self';
-    anchor.rel = link.href.startsWith('http') ? 'noreferrer noopener' : '';
-    anchor.innerHTML = `
-      <p class="link-category">${category}</p>
-      <h3>${link.title}</h3>
-      <p>${link.description}</p>
+  const rankList = document.getElementById("rank-list");
+  portalData.ranks.forEach((rank) => {
+    const block = document.createElement("article");
+    block.className = "rank-card";
+    block.innerHTML = `
+      <div class="rank-header">
+        <h3>${rank.name}</h3>
+        <span>${rank.type}</span>
+      </div>
+      <p><strong>Requirement:</strong> ${rank.requirement}</p>
+      <p>${rank.description}</p>
+      <p class="note">${rank.notes}</p>
     `;
-    linkGrid.appendChild(anchor);
-  });
-}
-
-function setActiveNav(viewName) {
-  navTabs.forEach((tab) => {
-    tab.classList.toggle('active', tab.dataset.view === viewName);
-  });
-}
-
-function showView(viewName, updateHash = true) {
-  portalViews.forEach((view) => {
-    const isActive = view.dataset.view === viewName;
-    view.classList.toggle('active-view', isActive);
+    rankList.appendChild(block);
   });
 
-  setActiveNav(viewName);
-
-  if (updateHash) {
-    window.location.hash = viewName;
-  }
-}
-
-function handleViewChange(viewName) {
-  if (!viewName) return;
-  showView(viewName);
-}
-
-navTabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    handleViewChange(tab.dataset.view);
+  const resourceList = document.getElementById("resource-list");
+  portalData.resources.forEach((resource) => {
+    const link = document.createElement("a");
+    link.href = resource.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.className = "resource-link";
+    link.textContent = resource.name;
+    resourceList.appendChild(link);
   });
 });
-
-navJumps.forEach((button) => {
-  button.addEventListener('click', () => {
-    handleViewChange(button.dataset.view);
-  });
-});
-
-window.addEventListener('hashchange', () => {
-  const hashView = window.location.hash.replace('#', '');
-  if (hashView) {
-    showView(hashView, false);
-  }
-});
-
-function dismissWelcome() {
-  welcomeModal.classList.add('hidden');
-  welcomeModal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
-}
-
-if (welcomeModal) {
-  document.body.classList.add('modal-open');
-  enterSiteButton.addEventListener('click', dismissWelcome);
-  welcomeModal.addEventListener('click', (event) => {
-    if (event.target === welcomeModal) {
-      dismissWelcome();
-    }
-  });
-}
-
-renderDivisions();
-renderLinks();
-
-const initialView = window.location.hash.replace('#', '') || 'overview';
-showView(initialView, false);
