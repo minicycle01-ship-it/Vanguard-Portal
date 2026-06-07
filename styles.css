@@ -31,7 +31,7 @@ body {
 .hero {
   min-height: 100vh;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.88)),
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.9)),
     radial-gradient(circle at center, rgba(193, 18, 31, 0.25), transparent 45%);
   display: flex;
   flex-direction: column;
@@ -39,10 +39,11 @@ body {
 
 .nav {
   width: 100%;
-  padding: 22px 8%;
+  padding: 26px 8%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 24px;
   border-bottom: 1px solid var(--border);
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(10px);
@@ -50,25 +51,38 @@ body {
 
 .logo {
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   color: var(--gold);
   text-transform: uppercase;
+  font-size: 18px;
 }
 
 .links {
   display: flex;
-  gap: 22px;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
 .links a {
-  color: var(--muted);
+  padding: 14px 30px;
+  border-radius: 999px;
   text-decoration: none;
-  font-size: 14px;
-  transition: 0.2s ease;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
 }
 
-.links a:hover {
-  color: var(--red-bright);
+.links a:hover,
+.links a.active {
+  background: linear-gradient(135deg, var(--red), var(--red-bright));
+  border-color: var(--red-bright);
+  color: white;
+  box-shadow: 0 0 22px rgba(193, 18, 31, 0.38);
+  transform: translateY(-2px);
 }
 
 .hero-content {
@@ -77,7 +91,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 900px;
+  align-items: center;
+  text-align: center;
 }
 
 .eyebrow {
@@ -107,9 +122,14 @@ h1 {
   background: linear-gradient(135deg, var(--red), var(--red-bright));
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 999px;
   font-weight: bold;
   box-shadow: 0 0 25px rgba(193, 18, 31, 0.35);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(193, 18, 31, 0.5);
 }
 
 main {
@@ -269,13 +289,18 @@ footer {
 
 @media (max-width: 650px) {
   .nav {
-    flex-direction: column;
-    gap: 16px;
+    padding: 22px 5%;
   }
 
   .links {
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .links a {
+    width: 100%;
+    text-align: center;
+    padding: 13px 18px;
   }
 
   .cards,
