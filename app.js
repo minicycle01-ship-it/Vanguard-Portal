@@ -1,56 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.title = portalData.title;
+  const navLinks = document.querySelectorAll(".nav a");
+  const sections = document.querySelectorAll("main section");
 
-  document.getElementById("portal-title").textContent = portalData.title;
-  document.getElementById("portal-tagline").textContent = portalData.tagline;
+  function showSection(sectionId) {
+    sections.forEach((section) => {
+      section.style.display = section.id === sectionId ? "block" : "none";
+    });
 
-  document.getElementById("overview-description").textContent =
-    portalData.overview.description;
+    navLinks.forEach((link) => {
+      const linkTarget = link.getAttribute("href").replace("#", "");
+      link.classList.toggle("active", linkTarget === sectionId);
+    });
+  }
 
-  document.getElementById("overview-entry").textContent =
-    portalData.overview.entry;
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
 
-  document.getElementById("overview-expectations").textContent =
-    portalData.overview.expectations;
+      const sectionId = link.getAttribute("href").replace("#", "");
+      showSection(sectionId);
 
-  document.getElementById("overview-focus").textContent =
-    portalData.overview.focus;
-
-  const directoryList = document.getElementById("directory-list");
-  portalData.directory.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <h3>${item.title}</h3>
-      <p>${item.text}</p>
-    `;
-    directoryList.appendChild(card);
+      history.pushState(null, "", `#${sectionId}`);
+    });
   });
 
-  const rankList = document.getElementById("rank-list");
-  portalData.ranks.forEach((rank) => {
-    const block = document.createElement("article");
-    block.className = "rank-card";
-    block.innerHTML = `
-      <div class="rank-header">
-        <h3>${rank.name}</h3>
-        <span>${rank.type}</span>
-      </div>
-      <p><strong>Requirement:</strong> ${rank.requirement}</p>
-      <p>${rank.description}</p>
-      <p class="note">${rank.notes}</p>
-    `;
-    rankList.appendChild(block);
-  });
+  const defaultSection = "overview";
+  const startingSection = window.location.hash
+    ? window.location.hash.replace("#", "")
+    : defaultSection;
 
-  const resourceList = document.getElementById("resource-list");
-  portalData.resources.forEach((resource) => {
-    const link = document.createElement("a");
-    link.href = resource.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.className = "resource-link";
-    link.textContent = resource.name;
-    resourceList.appendChild(link);
-  });
+  showSection(startingSection);
 });
