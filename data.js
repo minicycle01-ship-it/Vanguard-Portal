@@ -1,9 +1,3 @@
-
----
-
-## `data.js`
-
-```js
 const portalData = {
   title: "The Sith Vanguard Portal",
   divisionName: "The Sith Vanguard",
@@ -11,8 +5,8 @@ const portalData = {
 
   overview: {
     description:
-      "The Sith Vanguard oversees the training of the Order’s tacticians. It is also responsible for organizing offensive or defensive raids with the Jedi.",
-    theme: "Dark reds",
+      "The Sith Vanguard oversees the training of the Order's tacticians. It is also responsible for organizing offensive or defensive raids with the Jedi.",
+    theme: "Dark Reds",
     entry:
       "The Sith Vanguard is open for all to join, although members must hold at minimum the rank of Sith Acolyte for entry. A tryout is required.",
     expectations:
@@ -40,12 +34,12 @@ const portalData = {
     {
       title: "Leadership",
       text:
-        "The Blademaster serves as 1st in Command of the division and oversees the full Vanguard system."
+        "The Blademaster serves as the 1st in Command of the division and oversees the full Vanguard system."
     },
     {
       title: "Tryouts",
       text:
-        "Entry requires at least Sith Acolyte and completion of a Vanguard tryout."
+        "Entry requires at least Sith Acolyte and successful completion of a Vanguard tryout."
     }
   ],
 
@@ -55,29 +49,27 @@ const portalData = {
       type: "Entry Rank",
       requirement: "Entry into the Sith Vanguard.",
       description:
-        "Newcomers of the Vanguard seeking the way of the Warrior. Initiates are required by Vanguard Law to complete Warrior Introduction Training before starting their climb.",
+        "Newcomers of the Vanguard seeking the way of the Warrior. Initiates are required by Vanguard Law to complete Warrior Introduction Training before beginning their climb.",
       notes:
         "Initiate Training may be hosted by a Marauder+."
     },
     {
       name: "Advanced Initiate",
       type: "Training Rank",
-      requirement:
-        "Must pass Warrior Introduction Training.",
+      requirement: "Must pass Warrior Introduction Training.",
       description:
-        "Members who have passed Warrior Introduction Training now begin working on their lightsaber skills alongside other members of the Vanguard.",
+        "Members who have passed Warrior Introduction Training begin developing their lightsaber skills alongside other Vanguard members.",
       notes:
         "Requires 24 Activity Points before taking the Warrior Trial."
     },
     {
       name: "Warrior",
       type: "Full Member",
-      requirement:
-        "Must pass the Warrior Trial.",
+      requirement: "Must pass the Warrior Trial.",
       description:
-        "Full members of the Vanguard who have passed the test of their lightsaber skills in combat. Warriors are assigned to a squadron led by a Warmaster and Crusader.",
+        "Full members of the Vanguard who have proven their combat abilities. Warriors are assigned to a squadron led by a Warmaster and Crusader.",
       notes:
-        "Warriors form the main fighting body of the Sith Vanguard."
+        "Warriors form the primary fighting force of the division."
     },
     {
       name: "Marauder",
@@ -85,9 +77,9 @@ const portalData = {
       requirement:
         "Chosen by the Squadron Crusader and Squadron Warmaster.",
       description:
-        "Marauders are selected as more experienced combatants within the Vanguard. They act as seniors to Warriors and assist in developing combat discipline.",
+        "Marauders are recognized as experienced combatants and act as seniors to Warriors.",
       notes:
-        "Sith Order requirement rank: Sith Lord+."
+        "Sith Order Requirement Rank: Sith Lord+."
     },
     {
       name: "Crusader",
@@ -95,7 +87,7 @@ const portalData = {
       requirement:
         "Recognized command position within the Vanguard.",
       description:
-        "Crusaders assist in leading squadrons and maintaining the structure, discipline, and performance of Vanguard combat units.",
+        "Crusaders assist in leading squadrons and maintaining discipline and combat readiness.",
       notes:
         "Works alongside Warmasters in squadron leadership."
     },
@@ -105,9 +97,9 @@ const portalData = {
       requirement:
         "Voted in or chosen by the Blademaster.",
       description:
-        "Warmasters are the 2ICs of the division and leading commanders of the squadrons assigned to them by the Blademaster.",
+        "Warmasters are the leading commanders of Vanguard squadrons and serve as the division's 2nd in Command.",
       notes:
-        "Responsible for squadron command and supporting Vanguard leadership."
+        "Responsible for squadron leadership and supporting Vanguard operations."
     },
     {
       name: "Blademaster",
@@ -115,9 +107,9 @@ const portalData = {
       requirement:
         "Chosen by the Emperor or, in some cases, the Dark Council.",
       description:
-        "The Sith Blademaster is the 1st in Command of the Sith Vanguard and overseer of the squadrons. Known for mastery of lightsaber combat, the Blademaster oversees the full Vanguard system and may change policies to match the current situation of The Sith Order.",
+        "The Sith Blademaster is the 1st in Command of the Sith Vanguard and overseer of all squadrons. The Blademaster may alter Vanguard policies to match the needs of The Sith Order.",
       notes:
-        "The Blademaster holds authority over all ranks within the Vanguard. No one except the Emperor can overstep the Blademaster."
+        "No one except the Emperor can overstep the authority of the Blademaster within the division."
     }
   ],
 
