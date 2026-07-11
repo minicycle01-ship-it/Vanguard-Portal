@@ -31,6 +31,10 @@ window.portalData = {
     {
       title: "Admission",
       text: "Entry requires the rank of Sith Acolyte or higher. Interested members should contact a Warmaster+ regarding admission."
+    },
+    {
+      title: "Activity Point System",
+      text: "The Activity Point System is used by the Vanguard to track all members' progression within the Vanguard. All points are earned by attending trainings, recruitment runs, and raids."
     }
   ],
 
